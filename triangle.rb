@@ -14,6 +14,16 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+  # Verificar si alguno de los lados es menor o igual a cero
+  if a <= 0 || b <= 0 || c <= 0
+    raise TriangleError, "Los lados del triángulo deben ser mayores que cero"
+  end
+
+  # Verificar si se cumple la desigualdad del triángulo
+  if a + b <= c || a + c <= b || b + c <= a
+    raise TriangleError, "Los lados del triángulo no cumplen con la desigualdad del triángulo"
+  end
+
   if a == b && b == c
     :equilateral
   elsif a == b || b == c || a == c
